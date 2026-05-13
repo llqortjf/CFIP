@@ -20,7 +20,6 @@ import numpy as np
 cluster_num = 10
 
 #사진 불러오기
-# 이미지 읽기
 img = cv2.imread("./picture_dataset/picture-2.jpeg")
 # print(img.shape) #가로, 세로, 색 채널 순서로 출력
 
