@@ -27,7 +27,6 @@ print("관찰 이미지")
 plt.imshow(img)
 plt.show()
 
-
 #rgb변환
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
@@ -35,7 +34,7 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 pix = img.reshape((-1, 3))
 # print(pix.shape)
 
-#kmeans 학
+#kmeans 계산 (클러스터의 갯수에 맞춰 분류함)
 kmeans = KMeans(n_clusters=cluster_num) #몇개의 클러스터(그룹) 으로 나눌지
 kmeans.fit(pix)
 
