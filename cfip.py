@@ -16,40 +16,42 @@ from sklearn.cluster import KMeans
 from collections import Counter
 import numpy as np
 
-#클러스터(그룹) 갯수
-cluster_num = 10
+#클러스터(그룹) 갯수 
+cluster_num = 7
 
-#사진 불러오기
-img = cv2.imread("./picture_dataset/picture-2.jpeg")
-# print(img.shape) #가로, 세로, 색 채널 순서로 출력
+#이미지 읽
+img = cv2.imread("/content/drive/MyDrive/Deeplearning/Picture_Project/picture_dataset/picture-6.jpeg")
+# print(img.shape) #가로, 세로, 색 채널 순서로 출력 
 
 #rgb변환
-img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) 
 
 print("관찰 이미지")
 plt.imshow(img)
 plt.show()
 
-
 #색 채널 갯수와 열 갯수 동일하게 reshape
 pix = img.reshape((-1, 3))
 # print(pix.shape)
 
-#kmeans 계산 (클러스터의 갯수에 맞춰 분류함)
-kmeans = KMeans(n_clusters=cluster_num) #몇개의 클러스터(그룹) 으로 나눌지
+#kmeans 계산
+kmeans = KMeans(n_clusters=cluster_num) #몇개의 클러스터(그룹) 으로 나눌지 
 kmeans.fit(pix)
 
-cluster_means = kmeans.cluster_centers_ #각 클러스터 그룹에서의 색의 평균값
+cluster_means = kmeans.cluster_centers_ #각 클러스터 그룹에서의 색의 평균값 
 
 counts = Counter(kmeans.labels_) # 각 클러스터마다 들어가있는 값의 갯수
-# print(counts.values())
 sorted_counts = counts.most_common()
 # print(sorted_counts)
 
 color= np.zeros((1,cluster_num,3), dtype=np.uint8)
 
 for i in range(cluster_num):
-  color[0, i] = np.array([[[cluster_means[i][0], cluster_means[i][1], cluster_means[i][2]]]], dtype=np.uint8)
+  color[0, i ] = cluster_means[ sorted_counts[i][0] ]
 
 plt.imshow(color)
 plt.show()
+
+# print(cluster_means)
+# print(sorted_counts)
+# print(color)
