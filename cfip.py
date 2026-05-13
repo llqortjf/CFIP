@@ -17,11 +17,11 @@ from collections import Counter
 import numpy as np
 
 #클러스터(그룹) 갯수
-cluster_num = 5
+cluster_num = 10
 
 #사진 불러오기
 # 이미지 읽기
-img = cv2.imread("/content/drive/MyDrive/Deeplearning/Picture_Project/picture_dataset/picture-2.jpeg")
+img = cv2.imread("./picture_dataset/picture-2.jpeg")
 # print(img.shape) #가로, 세로, 색 채널 순서로 출력
 
 print("관찰 이미지")
@@ -47,7 +47,7 @@ counts = Counter(kmeans.labels_) # 각 클러스터마다 들어가있는 값의
 sorted_counts = counts.most_common()
 # print(sorted_counts)
 
-color= np.zeros((1,5,3), dtype=np.uint8)
+color= np.zeros((1,cluster_num,3), dtype=np.uint8)
 
 for i in range(cluster_num):
   color[0, i] = np.array([[[cluster_means[i][0], cluster_means[i][1], cluster_means[i][2]]]], dtype=np.uint8)
