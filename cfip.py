@@ -20,7 +20,7 @@ import numpy as np
 cluster_num = 7
 
 #이미지 읽
-img = cv2.imread("/content/drive/MyDrive/Deeplearning/Picture_Project/picture_dataset/picture-6.jpeg")
+img = cv2.imread("./picture_dataset/picture-6.jpeg")
 # print(img.shape) #가로, 세로, 색 채널 순서로 출력 
 
 #rgb변환
