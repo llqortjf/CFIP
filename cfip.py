@@ -23,12 +23,13 @@ cluster_num = 10
 img = cv2.imread("./picture_dataset/picture-2.jpeg")
 # print(img.shape) #가로, 세로, 색 채널 순서로 출력
 
+#rgb변환
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
 print("관찰 이미지")
 plt.imshow(img)
 plt.show()
 
-#rgb변환
-img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 #색 채널 갯수와 열 갯수 동일하게 reshape
 pix = img.reshape((-1, 3))
