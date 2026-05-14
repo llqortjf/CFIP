@@ -54,7 +54,7 @@ sorted_counts = counts.most_common()
 color= np.zeros((1,cluster_num,3), dtype=np.uint8)
 
 for i in range(cluster_num):
-  color[0, i ] = rgb[ sorted_counts[i][0] ]
+  color[:, i ] = rgb[ sorted_counts[i][0] ]
 
 plt.imshow(color)
 plt.show()
