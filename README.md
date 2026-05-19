@@ -6,3 +6,6 @@ Write the path of the picture you want in the part where you read the picture in
 It is output in order from the group with the largest number of pixels in the group.
 
 This code is made for color picture.
+
+## Execution result
+<img src="./CFIP.png" height="100" />
