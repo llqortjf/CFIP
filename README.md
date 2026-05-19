@@ -8,4 +8,4 @@ It is output in order from the group with the largest number of pixels in the gr
 This code is made for color picture.
 
 ## Execution result
-<img src="./CFIP.png" height="200" />
+<img src="./CFIP.png" height="400" />
